@@ -1,0 +1,15 @@
+Полезные ресурсы:
+https://github.com/apsdehal/awesome-ctf
+https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/NoSQL%20Injection/Intruder/NoSQL.txt
+https://github.com/vladko312/SSTImap
+
+Установка:
+https://cutter.re/
+https://hex-rays.com/ida-pro
+
+cookie-editor (firefox)
+
+ida pro - reverse -
+cutter - reverse
+wireshark 
+autopsy - forensics
