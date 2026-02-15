@@ -1,7 +1,51 @@
+
+Установить:
+user-agent-switcher (for firefox) || modify headers
+
+ИИ
+https://www.perplexity.ai/
+[google.ai](https://www.google.com/search?udm=50&aep=11)
+
+
 Полезные ресурсы:
 https://github.com/apsdehal/awesome-ctf
 https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/NoSQL%20Injection/Intruder/NoSQL.txt
 https://github.com/vladko312/SSTImap
+https://uppusaikiran.github.io/hacking/Capture-the-Flag-CheatSheet/
+https://github.com/Hat70ri/CTF_cheat_sheets?tab=readme-ov-file
+https://github.com/Hat70ri/CTF_cheat_sheets/blob/master/Windows_Linux_Sensitive_File_Checklist.pdf
+github.com/davidleitw/WiresharkFilters
+https://share.google/qPqNqAwmaIb5EMfmY
+github.com/gumrf/ctf-for-beginners
+github.com/jivoi/awesome-networking
+https://swisskyrepo.github.io/PayloadsAllTheThings/
+forensic and crypto
+https://trailofbits.github.io/ctf/forensics/
+https://gchq.github.io/
+https://github.com/jivoi/awesome-osint
+
+SQLmap Official Manual — PDF
+https://sqlmap.org/#docs
+
+SQLmap Cheat Sheet — TXT
+https://github.com/NetDirect/nmap-cheat-sheet/blob/master/sqlmap.txt
+
+SQL Injection Using SQLmap Cheatsheet — PDF
+https://www.hackingarticles.in/sql-injection-using-sqlmap-cheatsheet/
+
+Kali SQLmap Documentation — PDF
+https://www.kali.org/tools/sqlmap/
+
+OWASP SQL Injection Cheat Sheet — PDF
+https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html
+
+PayloadsAllTheThings (SQLmap Payloads) — TXT/MD
+https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/SQL%20Injection
+
+FuzzDB SQLi Payload Wordlists — TXT
+https://github.com/fuzzdb-project/fuzzdb/tree/master/attack/sql
+
+https://cybdetective.com/quickcacheandarhivesearch.html
 
 Установка:
 https://cutter.re/
@@ -9,7 +53,46 @@ https://hex-rays.com/ida-pro
 
 cookie-editor (firefox)
 
-ida pro - reverse -
-cutter - reverse
-wireshark 
-autopsy - forensics
+Быстрый список команд
+text
+# Burp: Proxy 8080, Intercept ON → SQLi: ' OR 1=1 --
+# Wireshark: http contains "flag" | dns | tcp.port==53
+# CyberChef: Magic (флаг) → From Base64/ROT13/Hex
+# Linux: strings file | grep -i flag | binwalk image.img
+# SQLmap: sqlmap -u "URL" --batch --dbs
+
+IP — доставка пакетов по сети.
+TCP — надёжная передача, всё по порядку.
+UDP — быстрая передача без гарантий.
+DNS — переводит имя сайта в IP.
+HTTP — запросы к сайтам (без шифрования).
+HTTPS — HTTP, но зашифрованный.
+FTP — передача файлов.
+SFTP — безопасная передача файлов.
+SSH — безопасное удалённое подключение к серверу.
+SMTP — отправка почты.
+IMAP — получение почты, хранение на сервере.
+POP3 — получение почты, скачивает на устройство.
+DHCP — выдаёт IP-адреса устройствам.
+ARP — сопоставляет IP → MAC адрес.
+ICMP — пинговка, проверка доступности.
+SSL/TLS — шифрование между клиентом и сервером.
+NTP — синхронизация времени.
+SNMP — управление сетевым оборудованием.
+RDP — удалённый рабочий стол Windows.
+Telnet — старый удалённый доступ без шифрования.
+LDAP — управление пользователями/группами в домене.
+Kerberos — авторизация в Windows-доменах.
+SIP — сигналы для звонков / VoIP.
+WebSocket — двухсторонняя связь в реальном времени.
+MQTT — маленькие сообщения для IoT устройств.
+BGP — протокол, по которому интернет знает куда отправлять трафик.
+SMB — сетевой обмен файлами (Windows).
+TFTP — простой, небезопасный FTP без авторизации.
+mDNS — локальное обнаружение устройств (типа AirDrop).
+VLAN (802.1Q) — логическое разделение сети.
+STP — защита от петель в сети.
+
+дорки:
+
+

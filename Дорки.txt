@@ -1,0 +1,76 @@
+site: - поиск на конкретном сайте
+inurl: - поиск в URL-адресе  
+intitle: - поиск в заголовке страницы
+filetype: - поиск по типу файла
+ext: - поиск по расширению файла
+intext: - поиск в тексте страницы
+cache: - просмотр кешированной версии
+link: - страницы ссылающиеся на URL
+related: - похожие сайты
+info: - информация о сайте
+define: - определение термина
+phonebook: - поиск телефонных номеров
+
+[site:github.com password
+- Найти пароли на GitHub
+
+inurl:admin login
+- Найти админские панели
+
+intitle:"index of" "parent directory"
+- Найти открытые директории
+
+filetype:sql "INSERT INTO" password
+- Найти SQL дампы с паролями
+
+ext:pdf "confidential"
+- Найти конфиденциальные PDF
+
+intext:"username" "password" "login"
+- Найти логин формы
+
+site:target.com ext:txt | ext:log | ext:bak
+- Найти бэкапы и логи
+
+intitle:"webcam 7" "active"
+- Найти веб-камеры
+
+filetype:xls "email" "password"
+- Найти Excel файлы с данными
+
+inurl:/phpinfo.php
+- Найти phpinfo файлы
+
+site:pastebin.com "API_KEY"
+- Найти утечки ключей
+
+intitle:"index of" .env
+- Найти файлы окружения
+
+filetype:log "error" "password"
+- Найти логи с ошибками
+
+inurl:/wp-admin/admin-ajax.php
+- Найти WordPress сайты
+
+site:target.com "password" "ftp"
+- Найти FTP креды на сайте]
+
+site:gov intext:"confidential" filetype:pdf
+- Конфиденциальные PDF на gov сайтах
+
+inurl:/admin/login.php "admin" "password"
+- Админки с стандартными креденшиалами
+
+intitle:"index of" "database.sql"
+- Открытые SQL базы данных
+
+site:github.com "ssh-rsa" "private key"
+- Приватные ключи на GitHub
+
+filetype:xml "password" "user"
+- XML файлы с паролями
+
+https://share.google/jSzGa8qVI6hgDA56t
+https://share.google/AxsQNErwPxUzLvWzL
+https://share.google/aBHvdq5jMQKsePOIu
