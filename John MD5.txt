@@ -3,3 +3,135 @@ john --format=raw-md5 hash.txt — для взлома MD5 хешей
 john --wordlist=passwords.txt hash.txt — атака по словарю
 john --rules hash.txt — применение правил модификации слов
 
+John the Ripper — краткий практический гайд по командам и примерам использования.
+Использовать только для тестирования собственных систем и лабораторий.
+
+Установка
+
+Debian / Kali / Astra:
+
+apt update
+apt install john -y
+
+Проверка доступных форматов:
+
+john --list=formats
+
+Взлом Linux-хешей (/etc/shadow)
+
+Шаг 1. Объединяем passwd и shadow:
+
+unshadow /etc/passwd /etc/shadow > hashes.txt
+
+Шаг 2. Словарная атака:
+
+john --wordlist=/usr/share/wordlists/rockyou.txt hashes.txt
+
+Посмотреть найденные пароли:
+
+john --show hashes.txt
+
+Если у вас уже есть хеш (пример SHA512)
+
+Пример хеша:
+
+$6$salt$longhash....
+
+Сохраняем его в файл:
+
+nano hash.txt
+
+Запуск с указанием формата:
+
+john --format=sha512crypt --wordlist=/usr/share/wordlists/rockyou.txt hash.txt
+
+Автоматический режим
+
+John сам попробует определить формат:
+
+john hash.txt
+
+Brute-force (полный перебор)
+
+Полный перебор:
+
+john --incremental hash.txt
+
+Только цифры:
+
+john --incremental=Digits hash.txt
+
+ZIP файл
+
+Извлекаем хеш:
+
+zip2john file.zip > ziphash.txt
+
+Запускаем взлом:
+
+john ziphash.txt
+
+RAR файл
+
+rar2john file.rar > rarhash.txt
+john rarhash.txt
+
+PDF файл
+
+pdf2john file.pdf > pdfhash.txt
+john pdfhash.txt
+
+SSH private key
+
+ssh2john id_rsa > sshhash.txt
+john sshhash.txt
+
+NTLM (Windows)
+
+Пример хеша:
+
+aad3b435b51404eeaad3b435b51404ee:5f4dcc3b5aa765d61d8327deb882cf99
+
+Запуск:
+
+john --format=NT hash.txt
+
+Просмотр найденных паролей
+
+john --show hash.txt
+
+Остановка и продолжение
+
+Остановить процесс:
+Ctrl + C
+
+Продолжить позже:
+
+john --restore
+
+Где хранятся результаты
+
+~/.john/john.pot
+
+Очистить базу найденных паролей:
+
+rm ~/.john/john.pot
+
+Самые полезные режимы
+
+--wordlist словарная атака
+--rules модификации словаря
+--incremental полный перебор
+--format указание типа хеша
+
+Практический рабочий вариант
+
+john --wordlist=/usr/share/wordlists/rockyou.txt --rules hash.txt
+
+Обычная последовательность действий:
+
+Сначала словарь
+
+Затем словарь с rules
+
+Затем incremental (если не найдено)
