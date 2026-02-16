@@ -19,6 +19,7 @@ https://share.google/qPqNqAwmaIb5EMfmY
 github.com/gumrf/ctf-for-beginners
 github.com/jivoi/awesome-networking
 https://swisskyrepo.github.io/PayloadsAllTheThings/
+
 forensic and crypto
 https://trailofbits.github.io/ctf/forensics/
 https://gchq.github.io/
@@ -97,4 +98,15 @@ IMBROps/ctf-wordlist
 дорки:
 
 
+UPDATE:
+https://sch9.ru/docs/ctf.html
+stegano: wget http://www.caesum.com/handbook/Stegsolve.jar -O stegsolve.jar
+	chmod +x stegsolve.jar
+	java -jar stegsolve.jar
+
+
+
+stegano и не только: https://kmb.cybber.ru/stego/stegsolve/main.html
+binwalk, zsteg, pngcheck - stegano
+dirsearch, dirb - directory
 

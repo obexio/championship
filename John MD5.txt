@@ -1,0 +1,5 @@
+John:
+john --format=raw-md5 hash.txt — для взлома MD5 хешей
+john --wordlist=passwords.txt hash.txt — атака по словарю
+john --rules hash.txt — применение правил модификации слов
+
