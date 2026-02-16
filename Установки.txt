@@ -95,18 +95,16 @@ VLAN (802.1Q) — логическое разделение сети.
 STP — защита от петель в сети.
 https://github.com/bryanmcnulty/ctf-wordlists
 IMBROps/ctf-wordlist
-дорки:
-
-
+дорки - in other file
 UPDATE:
 https://sch9.ru/docs/ctf.html
 stegano: wget http://www.caesum.com/handbook/Stegsolve.jar -O stegsolve.jar
 	chmod +x stegsolve.jar
 	java -jar stegsolve.jar
 
-
-
 stegano и не только: https://kmb.cybber.ru/stego/stegsolve/main.html
 binwalk, zsteg, pngcheck - stegano
 dirsearch, dirb - directory
+
+involta, cyberchef - crypto
 
