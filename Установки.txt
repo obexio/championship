@@ -6,7 +6,6 @@ user-agent-switcher (for firefox) || modify headers
 https://www.perplexity.ai/
 [google.ai](https://www.google.com/search?udm=50&aep=11)
 
-
 Полезные ресурсы:
 https://github.com/apsdehal/awesome-ctf
 https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/NoSQL%20Injection/Intruder/NoSQL.txt
@@ -15,16 +14,23 @@ https://uppusaikiran.github.io/hacking/Capture-the-Flag-CheatSheet/
 https://github.com/Hat70ri/CTF_cheat_sheets?tab=readme-ov-file
 https://github.com/Hat70ri/CTF_cheat_sheets/blob/master/Windows_Linux_Sensitive_File_Checklist.pdf
 github.com/davidleitw/WiresharkFilters
+
 https://share.google/qPqNqAwmaIb5EMfmY
 github.com/gumrf/ctf-for-beginners
 github.com/jivoi/awesome-networking
 https://swisskyrepo.github.io/PayloadsAllTheThings/
 
+XSS:
+https://htmlacademy.ru/blog/js/xss?amp=1
+https://www.thehacker.recipes/web/inputs/xss
+https://habr.com/ru/amp/publications/717896/
+img src="#" (alert) (если фотка)
+
 forensic and crypto
 https://trailofbits.github.io/ctf/forensics/
 https://gchq.github.io/
 https://github.com/jivoi/awesome-osint
-
+https://www.dcode.fr/
 SQLmap Official Manual — PDF
 https://sqlmap.org/#docs
 
@@ -95,16 +101,47 @@ VLAN (802.1Q) — логическое разделение сети.
 STP — защита от петель в сети.
 https://github.com/bryanmcnulty/ctf-wordlists
 IMBROps/ctf-wordlist
-дорки - in other file
-UPDATE:
+дорки:
+
+COMMANDS:
+
+SMTP:
+smtp-user-enum -M VRFY -U ./shortlist.txt -D domain.com -t 10.0.0.0
+
+SQLMAP:
+sqlmap -r reg --dbs
+sqlmap -D name_db --tables
+sqlmap -u '10.20.10.0/login.php' —forms —crawl=2 —batch —dump
+sqlmap -u ''
+sqlmap -D name_db -T name_table --dump
+
+SSTI:
+sstimap -u '' --oc-shell
+
+dirb http://ctf.hackatom.ru:port/
+gobuster, dirb, dirsearch:
+gobuster dir -u http://10.10.10.121/ -w /usr/share/seclists/Discovery/Web-Content/common.txt
+dirsearch -u 10.0.10.55
+
+
+
+
+
+# Subdomain name
+gobuster dns -d inlanefreight.com -w /usr/share/SecLists/Discovery/DNS/namelist.txt
+UPDATE 0.1:
 https://sch9.ru/docs/ctf.html
 stegano: wget http://www.caesum.com/handbook/Stegsolve.jar -O stegsolve.jar
 	chmod +x stegsolve.jar
 	java -jar stegsolve.jar
 
+
+
 stegano и не только: https://kmb.cybber.ru/stego/stegsolve/main.html
 binwalk, zsteg, pngcheck - stegano
 dirsearch, dirb - directory
 
-involta, cyberchef - crypto
-
+UPDATE 0.2:
+https://github.com/danielmiessler/SecLists
+https://share.google/gACwR7z593WBB5mMd - osint dorks bug bounty
+https://htmlacademy.ru/blog/php/vulnerability
